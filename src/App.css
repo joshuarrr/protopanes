@@ -1,38 +1,43 @@
+ /* Theme */
+/*****************************************************************************/
+/* Dark / Default */
+:root {
+  --color-bg: #00394F;
+  --color-fg: #F0F7FF;
+}
+
+/* Light */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-bg: F0F7FF;
+    --color-fg: #00394F;
+  }
+}
+
+/* App */
+/*****************************************************************************/
+html,
+body,
+#root,
 .App {
-  text-align: center;
+  height:  100%;
+  min-height: 100%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-variation-settings: "wght" 375;
+  background-color: var(--color-bg);
+  background:
+    conic-gradient(from 180deg at 100% 100%, 
+      rgba(0, 0, 0, 1) 0%, 
+      rgba(0, 64, 88, 1) 49%, 
+      rgba(0, 0, 0, 1) 100%);
+  color: var(--color-fg);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dot-grid {
+  --color-1: rgba(255, 255, 255, .35);
+  --color-2: rgba(0,0,0,0);
+  background-image: radial-gradient(circle at 1px 1px, var(--color-1) .5px, var(--color-2) 0);
+  background-size: 25px 25px;
 }

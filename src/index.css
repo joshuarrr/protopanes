@@ -1,13 +1,10 @@
-@import './App.css';
-/* @import "normalize.css"; */
-
-
 body {
-  font-family: 'iA Writer Duo V', sans-serif;
+  font-family: 'Overpass', 'PT Root UI VF', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: 'iA Writer Mono V', monospace;
+  font-family: 'Fira Mono', monospace;
 }
+

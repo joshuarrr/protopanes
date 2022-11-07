@@ -1,16 +1,24 @@
- /* Theme */
+/* Theme */
 /*****************************************************************************/
 /* Dark / Default */
 :root {
-  --color-bg: #00394F;
-  --color-fg: #F0F7FF;
+  --color-bg: #00394f;
+  --color-fg: #f0f7ff;
+  --color-pane-bg: rgba(0, 0, 0, .3);
+  --header-height: 50px;
+  --space-50: 50px;
+  --space-25: 25px;
+  --pane-bg: rgba(5, 47, 68, .7);
+  --pane-shadow-1: 0px 5px 15px 0px rgba(0,0,0,0.2);
+  --pane-shadow-2: 0px 2px 3px -1px rgba(5,47,66,0.9);
+  --pane-radius: 5px;
 }
 
 /* Light */
 @media (prefers-color-scheme: light) {
   :root {
     --color-bg: F0F7FF;
-    --color-fg: #00394F;
+    --color-fg: #00394f;
   }
 }
 
@@ -20,24 +28,97 @@ html,
 body,
 #root,
 .App {
-  height:  100%;
+  height: 100%;
   min-height: 100%;
-}
-
-body {
-  font-variation-settings: "wght" 375;
   background-color: var(--color-bg);
-  background:
-    conic-gradient(from 180deg at 100% 100%, 
-      rgba(0, 0, 0, 1) 0%, 
-      rgba(0, 64, 88, 1) 49%, 
-      rgba(0, 0, 0, 1) 100%);
   color: var(--color-fg);
+  font-variation-settings: "wght" 320;
+  font-size: 16px;
+  letter-spacing: .05rem;
 }
 
-.dot-grid {
-  --color-1: rgba(255, 255, 255, .35);
-  --color-2: rgba(0,0,0,0);
-  background-image: radial-gradient(circle at 1px 1px, var(--color-1) .5px, var(--color-2) 0);
+/* Responsive! */
+@media screen and (min-width: 320px) {
+  body {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    font-size: 22px;
+  }
+}
+
+/* Background dots */
+.dotgrid {
+  --color-1: rgba(255, 255, 255, 0.35);
+  --color-2: rgba(0, 0, 0, 0);
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    var(--color-1) 0.5px,
+    var(--color-2) 0
+  );
   background-size: 25px 25px;
+  padding: 0 var(--space-50) var(--space-50);
+}
+
+/* Header */
+.protopanes-header {
+  display: flex;
+  align-items: center;
+  height: var(--header-height);
+}
+
+.logotype {
+  font-variation-settings: "wght" 500;
+  background: linear-gradient(
+    45deg,
+    #1f5885,
+    #39a59d
+  );
+  background-size: 1000% 1000%;
+  animation: Glow 10s ease infinite;
+  color: #000;
+  background-clip: text;
+  text-fill-color: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.8rem;
+}
+
+@keyframes Glow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Main */
+.main {
+  height: calc(100% - var(--header-height));
+}
+
+
+/* Panes */
+.reflex-container {
+  /* height: calc(100% - var(--header-height)); */
+}
+
+.reflex-container > .reflex-element {
+  background: var(--color-pane-bg);
+  padding: var(--space-25);
+  box-shadow: var(--pane-shadow-1), var(--pane-shadow-2);
+  border-radius: var(--pane-radius);
+}
+
+.reflex-container.vertical > .reflex-splitter {
+  width: 1rem;
+  background: transparent;
+  border: none;
 }

@@ -122,3 +122,7 @@ body,
   background: transparent;
   border: none;
 }
+
+.reflex-element.header {
+  margin-bottom: var(--space-25);
+}
